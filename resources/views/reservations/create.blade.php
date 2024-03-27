@@ -17,15 +17,13 @@
                     services: [],
                     selectedServices: [],
                     subtotal: 0,
-                
+
                     fetchPeople() {
                         console.log('Fetching People');
                         if (!this.selectedLocation) {
                             this.people = [];
                             return;
                         }
-                        console.log('Selected Location', this.selectedLocation);
-                
                         axios.get(`/api/locations/${this.selectedLocation}/people`)
                             .then(response => {
                                 this.people = response.data.people;
@@ -64,8 +62,6 @@
                                 </ul>
                             </div>
                         @endif
-
-
                         <div class="flex items-center space-x-2">
                             <div class="flex-grow">
                                 <label for="date"

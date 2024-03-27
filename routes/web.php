@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\PersonController as AdminPersonController;
 use App\Http\Controllers\admin\ReservationController as AdminReservationController;
 use App\Http\Controllers\admin\LocationController as AdminLocationController;
+use App\Http\Controllers\admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,6 @@ require __DIR__ . '/auth.php';
 
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::view('/admin/dashboard', 'dashboard')->name('admin.dashboard');
-    Route::get('/admin/reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
     Route::resource('admin/people', AdminPersonController::class)->names([
         'index' => 'admin.people.index',
         'create' => 'admin.people.create',
@@ -43,6 +43,22 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
         'update' => 'admin.locations.update',
         'destroy' => 'admin.locations.destroy',
         'show' => 'admin.locations.show',
+    ]);
+    Route::resource('admin/reservations', AdminReservationController::class)->names([
+        'index' => 'admin.reservations.index',
+        'create' => 'admin.reservations.create',
+        'store' => 'admin.reservations.store',
+        'edit' => 'admin.reservations.edit',
+        'update' => 'admin.reservations.update',
+        'destroy' => 'admin.reservations.destroy',
+    ]);
+    Route::resource('admin/services', AdminServiceController::class)->names([
+        'index' => 'admin.services.index',
+        'create' => 'admin.services.create',
+        'store' => 'admin.services.store',
+        'edit' => 'admin.services.edit',
+        'update' => 'admin.services.update',
+        'destroy' => 'admin.services.destroy',
     ]);
 });
 

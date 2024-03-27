@@ -14,4 +14,5 @@ class LocationController extends Controller
         $locations = Location::paginate(10);
         return view('admin.locations.index', compact('locations'));
     }
+    
 }

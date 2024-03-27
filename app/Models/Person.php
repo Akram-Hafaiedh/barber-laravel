@@ -13,15 +13,22 @@ class Person extends Model
     use HasFactory;
 
     const ROLES = [
-        'manager' => 'Manager',
-        'staff' => 'Staff',
-        'marketing' => 'Marketing',
+        'manager', //executive
+        'staff', // hairdresser
+        'owner',
+        'director',
+        'marketing', //representative
     ];
 
     protected $table = 'people';
     protected $fillable = [
         'name',
+        'first_name',
+        'last_name',
         'phone',
+        'birthday',
+        'identification_id',
+        'adresse',
         'location_id',
         'email',
         'notes',
@@ -42,5 +49,10 @@ class Person extends Model
     public function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);
+    }
+
+    public function shifts(): HasMany
+    {
+        return $this->hasMany(Shift::class);
     }
 }

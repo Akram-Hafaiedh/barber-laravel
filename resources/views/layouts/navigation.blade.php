@@ -36,6 +36,11 @@
                             {{ __('People') }}
                         </x-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('admin.services.index')" :active="request()->routeIs('services.index')">
+                            {{ __('Services') }}
+                        </x-nav-link>
+                    </div>
                 @endadmin
 
                 @user()
@@ -118,18 +123,23 @@
         @endauth
         @admin()
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('admin.locations.index')" :active="request()->routeIs('locations.index')">
+                <x-responsive-nav-link :href="route('admin.locations.index')" :active="request()->routeIs('admin.locations.index')">
                     {{ __('Locations') }}
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('admin.people.index')" :active="request()->routeIs('people.index')">
+                <x-responsive-nav-link :href="route('admin.people.index')" :active="request()->routeIs('admin.people.index')">
                     {{ __('People') }}
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('reservations.index')">
+                <x-responsive-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
                     {{ __('Reservations') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.index')">
+                    {{ __('Services') }}
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
